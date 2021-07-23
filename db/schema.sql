@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS myHealth_db;
+
+CREATE DATABASE myHealth_db;
