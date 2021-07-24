@@ -22,24 +22,32 @@
             <div class="card-body">
           
               <div class="brand-wrapper">
-                <p class="font-weight-bold h2">MyHealth</p>
+                <p class="font-weight-bold h5">MyHealth</p>
               </div>
-              <p class="login-card-description">Sign into your account</p>
+              <h1 class="login-card-description">Create a new account</h1>
               <form action="#!">
-                  <div class="form-group">
-                    <label for="email" class="sr-only">Email</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
+                <div>
+                  <label for="user">Sign up as:</label>
+                  <select class="form-control" aria-label="Default select example">
+                    <option selected>Select</option>
+                    <option value="patient">Patient</option>
+                    <option value="provider">Provider</option>
+                  </select>
+                  
+                </div>
+                  <div>
+                    <label for="email-signup">Email:</label>
+                    <input type="email" id="email-signup" class="form-control" placeholder="Email address">
                   </div>
-                  <div class="form-group mb-4">
-                    <label for="password" class="sr-only">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="***********">
+                  <div>
+                    <label for="password-signup">Password:</label>
+                    <input type="password" id="password-signup" class="form-control" placeholder="***********">
                   </div>
-                  <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Login">
+            
+                  <input name="submit" id="signup" class="btn btn-block login-btn mb-4" type="submit" value="Sign up">
                 </form>
-                <p class="login-card-footer-text">Don't have an account? <a href="./signuppage.html" class="text-reset">Register here</a></p>
+                <p class="login-card-footer-text">Already have an account? <a href="index.html" class="text-reset">Log in here</a></p>
                 <p class="login-card-footer-text">Take a look at our <a href="#!" class="text-reset">Health Blog</a></p>
-                <nav class="login-card-footer-nav">
-                </nav>
             </div>
           </div>
         </div>
@@ -51,4 +59,3 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
-
