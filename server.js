@@ -37,5 +37,3 @@ app.use(session({
 //hbs
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutDir: _dirname + 'views/layout'}));
 app.set('view engine', 'hbs');
-
- .
