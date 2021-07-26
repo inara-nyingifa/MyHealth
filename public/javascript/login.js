@@ -3,7 +3,7 @@ async function loginFormHandler(event) {
 
     const email = document.querySelector('#email').value.trim();
     const password = document.querySelector('#password').value.trim();
-
+    //may need to change route
     if (email && passowrd) {
         const response = await fetch('/api/users/login', {
             method: 'post',
