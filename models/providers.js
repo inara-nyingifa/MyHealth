@@ -11,6 +11,20 @@ Providers.init({
         primaryKey: true,
         autoIncrement: true
     },
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            isAlpha: true,
+        }
+    },
+    last_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            isAlpha: true,
+        }
+    },
     type:
     {
         type: DataTypes.STRING,

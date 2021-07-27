@@ -11,6 +11,22 @@ Patients.init({
         primaryKey: true,
         autoIncrement: true
     },
+    name: 
+    {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            isAlpha: true,
+        }
+    },
+    last_name: 
+    {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            isAlpha: true,
+        }
+    },
     DOB: 
     {
         type: DataTypes.DATEONLY,
@@ -55,7 +71,7 @@ Patients.init({
     },
     notes: 
     {
-        tyep: DataTypes.STRING,
+        type: DataTypes.STRING,
         validate: {
             len: [2,200]
         }
