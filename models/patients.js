@@ -55,7 +55,7 @@ Patients.init({
     },
     notes: 
     {
-        tyep: DataTypes.STRING,
+        type: DataTypes.STRING,
         validate: {
             len: [2,200]
         }
