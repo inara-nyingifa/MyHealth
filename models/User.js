@@ -54,3 +54,4 @@ underscored: true,
 modelName: 'user'
 }
 );
+module.exports = User;
