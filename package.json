@@ -19,11 +19,16 @@
   "homepage": "https://github.com/inara-nyingifa/MyHealth#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "browser-sync": "^2.27.5",
     "connect-session-sequelize": "^7.1.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.2",
     "express-session": "^1.17.2",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
     "jest": "^27.0.6",
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.5"
