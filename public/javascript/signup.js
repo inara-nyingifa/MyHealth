@@ -16,9 +16,13 @@ async function signupFormHandler(event) {
           headers: { 'Content-Type': 'application/json'}
       });
       
-      if(response.ok) {
-          document.location.replace('/dashboard');
-      } else {
+      if(response.ok && user_type.value=='patient') {
+          document.location.replace('/dashboard/');
+      } 
+      else if(response.ok && user_type.value=='provider') {
+        document.location.replace('/dashboardProvider/');
+      } 
+      else {
           alert(response.statusText);
       }
     }
