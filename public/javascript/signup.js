@@ -6,7 +6,7 @@ async function signupFormHandler(event) {
     const password = document.querySelector('#password-signup').value.trim();
     //may need to change route
     if(user_type && email && password) {
-      const response = await fetch('/api/user-routes', {
+      const response = await fetch('/api/user', {
           method: 'post',
           body: JSON.stringify({
               email,
