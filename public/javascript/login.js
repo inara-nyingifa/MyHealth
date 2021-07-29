@@ -5,7 +5,7 @@ async function loginFormHandler(event) {
     const password = document.querySelector('#password').value.trim();
     //may need to change route
     if (email && passowrd) {
-        const response = await fetch('/api/user/login', {
+        const response = await fetch('/api/users/login', {
             method: 'post',
             body: JSON.stringify({
                 email,
@@ -15,7 +15,7 @@ async function loginFormHandler(event) {
         });
 
         if(response.ok) {
-            document.location.replace('/dashboard/');
+            document.location.replace('/dashboard');
         } else {
             alert(response.statusText);
         }

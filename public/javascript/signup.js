@@ -6,7 +6,7 @@ async function signupFormHandler(event) {
     const password = document.querySelector('#password-signup').value.trim();
     //may need to change route
     if(user_type && email && password) {
-      const response = await fetch('/api/user', {
+      const response = await fetch('/api/users', {
           method: 'post',
           body: JSON.stringify({
               email,
@@ -17,10 +17,10 @@ async function signupFormHandler(event) {
       });
       
       if(response.ok && user_type.value=='patient') {
-          document.location.replace('/dashboard/');
+          document.location.replace('/dashboard');
       } 
       else if(response.ok && user_type.value=='provider') {
-        document.location.replace('/dashboardProvider/');
+        document.location.replace('/dashboardProvider');
       } 
       else {
           alert(response.statusText);
