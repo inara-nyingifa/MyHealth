@@ -45,10 +45,10 @@ Find the deployed website [here](.... .herokuapp.com/).
 
 
 ## Questions
-If you have any questions about this project, send me an email at lizethariasc14@gmail.com or contact us through our GitHubs:
- [Liz Arias](https://github.com/lizariasc)
- [Inara Nyingifa](https://github.com/inara-nyingifa).
- [Araceli ](https://github.com/Araceli4690).
+If you have any questions about this project, send me an email at lizethariasc14@gmail.com or contact us through our GitHub accounts:
+ * [Liz Arias](https://github.com/lizariasc).
+ * [Inara Nyingifa](https://github.com/inara-nyingifa).
+ * [Araceli ](https://github.com/Araceli4690).
 
 ## Mock-up
 ![Mock-up](mockup.png)
