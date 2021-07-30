@@ -1,9 +1,9 @@
 # MyHealth
 
-# The-coding-blog
-
 ## Description
-MyHealth is a revolutionary Healthcare Platform that connects patients to doctors through a secure mobile platform allowing patients access to view health records from your computer, tablet or smartphone. You’ll now be able to create mobile accounts to view health records from previous and current visits. Not only does this app benefit patients it’s also a huge help to health care providers as well. This application connects doctors and nurses to their network of patients making accessing and updating patient information readily accessible.
+MyHealth is a revolutionary Healthcare Platform that connects patients to doctors through a secure mobile platform allowing patients access to view health records from your computer, tablet or smartphone. 
+
+You’ll now be able to create mobile accounts to view health records from previous and current visits. Not only does this app benefit patients it’s also a huge help to health care providers as well. This application connects doctors and nurses to their network of patients making accessing and updating patient information readily accessible.
 
 
 ## Table of Contents
