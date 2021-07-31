@@ -11,4 +11,12 @@ router.get('/signup', (req, res) => {
 });
 
 
+router.get('/patient-dashboard', (req, res) => {
+  res.render('patient-dashboard');
+});
+
+router.get('/post', (req, res) => {
+  res.render('post');
+});
+
 module.exports = router;
