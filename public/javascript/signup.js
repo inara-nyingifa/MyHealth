@@ -9,9 +9,9 @@ async function signupFormHandler(event) {
       const response = await fetch('/api/users', {
           method: 'post',
           body: JSON.stringify({
+              account_type,
               email,
               password,
-              account_type
           }),
           headers: { 'Content-Type': 'application/json'}
       });
@@ -28,4 +28,4 @@ async function signupFormHandler(event) {
     }
 }
 
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+document.querySelector('#signup').addEventListener('submit', signupFormHandler);
