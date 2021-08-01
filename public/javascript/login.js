@@ -15,10 +15,10 @@ async function loginFormHandler(event) {
             headers: {'Content-Type': 'application/json'}
         });
 
-        if(response.ok && account_type.value=='patient') {
+        if(response.ok && account_type.value==='patient') {
             document.location.replace('/patient-dashboard');
         } 
-        else if(response.ok && account_type.value=='provider') {
+        else if(response.ok && account_type.value==='provider') {
           document.location.replace('/provider-dashboard');
         }  else {
             alert(response.statusText);
