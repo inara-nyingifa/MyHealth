@@ -22,10 +22,10 @@
 </section>
 
   <h2>Your Posts</h2>
-  {{#if post.length}}
+  {{#if posts.length}}
   <section>
   <ol>
-    {{#each post as |post|}}
+    {{#each posts as |post|}}
     <li>
       {{> post-info post}}
     </li>

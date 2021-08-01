@@ -29,6 +29,13 @@ Comment.belongsTo(User, {
     foreignKey: 'user_id',
     onDelete: 'SET NULL'
 });
+User.hasMany(Comment, {
+    foreignKey: 'user_id'
+});
+
+Post.hasMany(Comment, {
+    foreignKey: 'post_id'
+});
 
 User.hasMany(Patients, {
     foreignKey: 'user_id',

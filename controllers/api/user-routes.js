@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Post, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // GET 
 router.get('/', (req, res) => {
@@ -14,13 +15,13 @@ router.get('/', (req, res) => {
       });
   });
 
-
+// GET users by Id
 router.get('/:id', (req, res) => {
     User.findOne({
       attributes: { exclude: ['password'] },
       where: {
         id: req.params.id
-      }
+      },
     })
       .then(dbUserData => {
         if (!dbUserData) {
@@ -37,18 +38,20 @@ router.get('/:id', (req, res) => {
 
 // POST 
 router.post('/', (req, res) => {
-    User.create({
-      account_type: req.body.account_type,
-      email: req.body.email,
-      password: req.body.password
-    })
-      .then(dbUserData => res.json(dbUserData))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
-
+  User.create({
+    account_type: req.body.account_type,
+    email: req.body.email,
+    password: req.body.password
+  })
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+          
+          
+    // LOGIN
     router.post('/login', (req, res) => {
       
       User.findOne({
@@ -62,22 +65,24 @@ router.post('/', (req, res) => {
         }
     
         const validPassword = dbUserData.checkPassword(req.body.password);
+
         if (!validPassword) {
-          res.status(400).json({ message: 'Incorrect password!' });
+          res.status(400).json({ message: 'Incorrect password! Try again' });
           return;
         }
+
         req.session.save(() => {
           // session variables
           req.session.user_id = dbUserData.id;
-          req.session.username = dbUserData.username;
-          req.session.twitter = dbUserData.twitter;
-          req.session.github = dbUserData.github;
+          req.session.account_type = dbUserData.account_type;
+          req.session.email = dbUserData.email;
           req.session.loggedIn = true;
   
           res.json({ user: dbUserData, message: 'You are now logged in!' });
         });
       });
     });
+
   //logout
     router.post('/logout', (req, res) => {
       if (req.session.loggedIn) {
@@ -90,9 +95,10 @@ router.post('/', (req, res) => {
       }
     });
 
+
 // PUT 
-router.put('/:id', (req, res) => {
-  individualHooks: true,
+router.put('/:id', withAuth, (req, res) => {
+  
   User.update(req.body, {
     individualHooks: true,
     where: {
@@ -113,7 +119,7 @@ router.put('/:id', (req, res) => {
   });
 
 // DELETE /api/users/1
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     User.destroy({
       where: {
         id: req.params.id
@@ -134,4 +140,3 @@ router.delete('/:id', (req, res) => {
   
 
 module.exports = router;
-//added to push

@@ -8,7 +8,7 @@ async function editInfo(event) {
     const provider_id = document.querySelector('input[name="providerID"]').value.trim();
 
     
-    const response = await fetch('/api/post', {
+    const response = await fetch('/api/posts', {
         method: 'POST',
         body: JSON.stringify({
             name,
