@@ -1,7 +1,7 @@
 async function signupFormHandler(event) {
     event.preventDefault();
 
-    const account_type = document.querySelector('#account_type').value();
+    const account_type = document.querySelector('#account_type').value;
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
     //may need to change route
@@ -28,4 +28,4 @@ async function signupFormHandler(event) {
     }
 }
 
-document.querySelector('#signup').addEventListener('submit', signupFormHandler);z
+document.querySelector('#signup').addEventListener('click', signupFormHandler);

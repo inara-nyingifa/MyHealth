@@ -2,7 +2,7 @@
                 <p class="h3">MyHealth</p>
                 <p class="font-weight-bold h1">Ask a Question:</p>
                 <br>
-              </div>
+  </div>
 <section>
   <form class="new-post-form">
        <div>
@@ -18,12 +18,21 @@
     <button type="submit" class="button btn btn-block login-btn mb-4 is-pulled-right" id='dashboard'>Home</button>
     <br>
   </form>
+  <br>
 </section>
-          </div>
-          </div>
-        </div>
-        
-      </div>
-    </div>
+
+  <h2>Your Posts</h2>
+  {{#if post.length}}
+  <section>
+  <ol>
+    {{#each post as |post|}}
+    <li>
+      {{> post-info post}}
+    </li>
+    {{/each}}
+  </ol>
+  </section>
+  {{/if}}
+         
 <script src="/javascript/add-post.js"></script>
 <script src="/javascript/patient-dashboard.js"></script>

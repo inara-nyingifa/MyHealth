@@ -45,6 +45,16 @@ Providers.init({
             msg: 'Please enter your 5-10 license number'
         }
     },
+    //added provider id
+    provider_id: 
+    {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+            isNumeric: true,
+            len: [5,10],
+        }
+    },
     user_id: {
         type: DataTypes.INTEGER,
         references: {
