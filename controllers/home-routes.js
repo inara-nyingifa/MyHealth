@@ -16,6 +16,9 @@ router.get('/patient-dashboard', (req, res) => {
   res.render('patient-dashboard');
 });
 
+router.get('/provider-dashboard', (req, res) => {
+  res.render('provider-dashboard');
+});
 
 
 router.get('/post', (req, res) => {

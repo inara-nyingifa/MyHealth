@@ -7,28 +7,33 @@
                 <thead>
                   <tr>
                     <th scope="col">Name</th>
-                    <th scope="col">Liz</th>
+                    <th scope="col"><input name='name'></th>
                   </tr>
                   <tr>
                     <th scope="col">Last Name</th>
-                    <th scope="col">Arias</th>
+                    <th scope="col"><input name='lastName'></th>
                   </tr>
                 </thead>
                 <tbody> 
                   <tr>
                     <th scope="row">Type</th>
-                    <td>Nurse</td>
+                    <td><input name='type'></td>
                   </tr>
                   <tr>
                     <th scope="row">License #</th>
-                    <td>00000</td>
+                    <td><input name='licenseNum'></td>
                   </tr>
                   <tr>
                     <th scope="row">Provider ID</th>
-                    <td>2</td>
+                    <td><input name='providerID'></td>
+                  </tr>
+                  <tr>
+                   <th><button type="submit" class="btn btn-primary mb-2 float-right" id='edit-save'>Save</button></th>
+                   <td></td>
                   </tr>
                 </tbody>
               </table>
+              <br>
                <p class="font-weight-bold h2">Select Patient:</p>
                <select class="form-select form-select-lg mb-9" aria-label=".form-select-lg example">
                 <option selected>Open to select Patient</option>
@@ -36,8 +41,15 @@
                 <option value="2">Gonzalez, Maria</option>
                 <option value="3">Hong, Dana</option>
               </select>
+              <br>
+              <br>
+              <br>
+              <input name="submit" id="logout" class="btn btn-block float-left login-btn mb-4" type="submit" value="Log out">
               </div>
             </div>
           </div>
         </div>
         </div>
+
+        <script src="/javascript/logout.js"></script>
+        <script src="/javascript/edit-info.js"></script>
