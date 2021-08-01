@@ -3,7 +3,8 @@ const sequelize = require('../config/connection');
 
 class Patients extends Model {};
 
-Patients.init({
+Patients.init(
+    {
     id: 
     {
         type: DataTypes.INTEGER,
@@ -48,6 +49,7 @@ Patients.init({
     },
     diagnosis: {
         type: DataTypes.STRING,
+        allowNull: false
     },
     weight: 
     {
@@ -63,24 +65,6 @@ Patients.init({
         allowNull: false,
         notNull: {
             msg: "Please enter patient's height",
-        }
-    },
-    ethnicity: 
-    {
-        type: DataTypes.STRING
-    },
-    notes: 
-    {
-        type: DataTypes.STRING,
-        validate: {
-            len: [2,200]
-        }
-    },
-    user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'user',
-            key: 'id'
         }
     },
     provider_id: 
