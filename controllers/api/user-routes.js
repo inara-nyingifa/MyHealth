@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post, Comment, Patients } = require('../../models');
+const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET 
@@ -22,20 +22,6 @@ router.get('/:id', (req, res) => {
       where: {
         id: req.params.id
       },
-      include: [
-        {
-          model: Patients,
-          attributes: ['id', 'name', 'last_name', 'DOB', 'address', 'diagnosis', 'weigh', 'height', 'provider_id']
-        },
-        {
-          model: Post,
-          attributes: ['id', 'post_content', 'created_at']
-        },
-        {
-            model: Comment,
-            attributes: ['id', 'comment_text', 'created_at']
-        }
-      ]
     })
       .then(dbUserData => {
         if (!dbUserData) {
@@ -52,23 +38,17 @@ router.get('/:id', (req, res) => {
 
 // POST 
 router.post('/', (req, res) => {
-    User.create({
-      account_type: req.body.account_type,
-      email: req.body.email,
-      password: req.body.password
-    })
-      .then(dbUserData => {
-        req.session.save(() => {
-          req.session.user_id = dbUserData.id;
-          req.session.account_type = dbUserData.account_type;
-          req.session.email = dbUserData.email;
-          req.session.password = dbUserData.password;
-          req.session.loggedIn = true;
-
-          res.json(dbUserData);
-        });
-      });
-    }); 
+  User.create({
+    account_type: req.body.account_type,
+    email: req.body.email,
+    password: req.body.password
+  })
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
           
           
     // LOGIN
@@ -85,23 +65,23 @@ router.post('/', (req, res) => {
         }
     
         const validPassword = dbUserData.checkPassword(req.body.password);
+
         if (!validPassword) {
           res.status(400).json({ message: 'Incorrect password! Try again' });
           return;
         }
+
         req.session.save(() => {
           // session variables
           req.session.user_id = dbUserData.id;
           req.session.account_type = dbUserData.account_type;
           req.session.email = dbUserData.email;
-          req.session.password = dbUserData.password;
           req.session.loggedIn = true;
   
           res.json({ user: dbUserData, message: 'You are now logged in!' });
         });
       });
     });
-
 
   //logout
     router.post('/logout', (req, res) => {

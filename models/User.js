@@ -33,7 +33,8 @@ User.init({
     },
     account_type:
     {
-       type: DataTypes.STRING
+       type: DataTypes.STRING, 
+       allowNull: false
     }
 },
 {
