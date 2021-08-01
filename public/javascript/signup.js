@@ -2,8 +2,8 @@ async function signupFormHandler(event) {
     event.preventDefault();
 
     const account_type = document.querySelector('#account_type').value;
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
+    const email = document.querySelector('#email').value.trim();
+    const password = document.querySelector('#password').value.trim();
     //may need to change route
     if(account_type && email && password) {
       const response = await fetch('/api/users', {
