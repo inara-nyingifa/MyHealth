@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
     Post.findAll({
         attributes: [
             'id',
+            'title',
             'created_at',
             'post_content'
         ],
@@ -20,12 +21,12 @@ router.get('/', (req, res) => {
           attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
           include: {
             model: User,
-            attributes: ['name', 'last_name']
+            attributes: ['account_type', 'email']
           }
         },
         {
           model: User,
-          attributes: ['name', 'last_name']
+          attributes: ['account_type', 'email']
         },
       ]
     })
@@ -43,6 +44,7 @@ router.get('/', (req, res) => {
       },
       attributes: [
         'id',
+        'title',
         'created_at',
         'post_content'
       ],
@@ -50,14 +52,14 @@ router.get('/', (req, res) => {
         // Comment model 
         {
           model: User,
-          attributes: ['name', 'last_name']
+          attributes: ['account_type', 'email']
         },
         {
           model: Comment,
           attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
           include: {
             model: User,
-            attributes: ['name', 'last_name']
+            attributes: ['account_type', 'email']
           }
         }
       ]
@@ -78,6 +80,7 @@ router.get('/', (req, res) => {
   // post route
 router.post('/', withAuth, (req, res) => {
     Post.create({
+      title: req.body.title,
       post_content: req.body.post_content,
       user_id: req.session.user_id
     })
@@ -91,6 +94,7 @@ router.post('/', withAuth, (req, res) => {
 // put route
 router.put('/:id', withAuth, (req, res) => {
     Post.update({
+        title: req.body.title,
         post_content: req.body.post_content
       },
       {
