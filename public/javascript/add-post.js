@@ -1,9 +1,9 @@
 async function newFormHandler(event) {
     event.preventDefault();
 
-    const title = document.querySelector('input[name="question-title"]').value;
+    const title = document.querySelector('#post-content').value;
     
-    const response = await fetch('/api/posts', {
+    const response = await fetch('/api/post', {
         method: 'POST',
         body: JSON.stringify({
             title 
@@ -13,10 +13,10 @@ async function newFormHandler(event) {
         }
     });
     if(response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/post');
     } else {
         alert(response.statusText);
     }
 }
 
-document.querySelector('.new-post-form').addEventListener('submit',newFormHandler);
+document.querySelector('.post-submit').addEventListener('submit',newFormHandler);

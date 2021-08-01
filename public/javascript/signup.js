@@ -1,11 +1,11 @@
 async function signupFormHandler(event) {
     event.preventDefault();
 
-    const user_type = document.querySelector('#user-type').value.trim();
+    const account_type = document.querySelector('#account_type').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
     //may need to change route
-    if(user_type && email && password) {
+    if(account_type && email && password) {
       const response = await fetch('/api/users', {
           method: 'post',
           body: JSON.stringify({
@@ -16,11 +16,11 @@ async function signupFormHandler(event) {
           headers: { 'Content-Type': 'application/json'}
       });
       
-      if(response.ok && user_type.value=='patient') {
-          document.location.replace('/dashboard');
+      if(response.ok && account_type.value=='patient') {
+          document.location.replace('/patient-dashboard');
       } 
-      else if(response.ok && user_type.value=='provider') {
-        document.location.replace('/dashboardProvider');
+      else if(response.ok && account_type.value=='provider') {
+        document.location.replace('/provider-dashboard');
       } 
       else {
           alert(response.statusText);

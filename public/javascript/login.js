@@ -1,7 +1,7 @@
 async function loginFormHandler(event) {
     event.preventDefault();
 
-    const user_type = document.querySelector('#user-type').value.trim();
+    const account_type = document.querySelector('#account_type').value;
     const email = document.querySelector('#email').value.trim();
     const password = document.querySelector('#password').value.trim();
     //may need to change route
@@ -15,11 +15,11 @@ async function loginFormHandler(event) {
             headers: {'Content-Type': 'application/json'}
         });
 
-        if(response.ok && user_type.value=='patient') {
-            document.location.replace('/dashboard');
+        if(response.ok && account_type.value=='patient') {
+            document.location.replace('/patient-dashboard');
         } 
-        else if(response.ok && user_type.value=='provider') {
-          document.location.replace('/dashboardProvider');
+        else if(response.ok && account_type.value=='provider') {
+          document.location.replace('/provider-dashboard');
         }  else {
             alert(response.statusText);
         }
