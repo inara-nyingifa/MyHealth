@@ -17,18 +17,18 @@ async function signupFormHandler(event) {
       });
       
      
-      if(response.ok) {
-        document.location.replace('/dashboard/');
-        if(account_type === 'provider') {
-            document.location.replace('provider-dashboard')
-        } else if (account_type === 'patient') {
-            document.location.replace('patient-dashboard')
+ if(response.ok) {
+            document.location.replace('/dashboard/');
+            if(account_type === 'provider') {
+                document.location.replace('provider-dashboard')
+            } else if (account_type === 'patient') {
+                document.location.replace('patient-dashboard')
+            } else {
+                document.location.replace('/homepage/');
+            }
         } else {
-            document.location.replace('/homepage/');
+            alert(response.statusText);
         }
-    } else {
-        alert(response.statusText);
-    }
     }
 }
 
