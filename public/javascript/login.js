@@ -9,19 +9,23 @@ async function loginFormHandler(event) {
         const response = await fetch('/api/users/login', {
             method: 'post',
             body: JSON.stringify({
-                account_type,
+                
                 email,
                 password
             }),
             headers: {'Content-Type': 'application/json'}
         });
 
-        if(response.ok && account_type.value==='patient') {
-            document.location.replace('/patient-dashboard');
-        } 
-        else if(response.ok && account_type.value==='provider') {
-          document.location.replace('/provider-dashboard');
-        }  else {
+        if(response.ok) {
+            document.location.replace('/dashboard/');
+            if(account_type === 'provider') {
+                document.location.replace('provider-dashboard')
+            } else if (account_type === 'patient') {
+                document.location.replace('patient-dashboard')
+            } else {
+                document.location.replace('/homepage/');
+            }
+        } else {
             alert(response.statusText);
         }
     }
