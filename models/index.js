@@ -1,7 +1,5 @@
 //import models
 const User = require('./User');
-const Patients = require('./Patients');
-const Providers = require('./Providers');
 const Post = require('./Post');
 const Comment = require('./Comment');
 
