@@ -21,7 +21,13 @@
           </div>
           <div class="col-md-7">
             <div class="card-body">
-              
+                <nav class="navbar mt-2 is-light is-transparent">
+            {{#if loggedIn}}
+            <a href="/dashboard/create/" class="navbar-item pt-1 mr-4">Create Post</a>
+            <button id="logout" class="button is-danger has-text-weight-bold">Logout</button>
+            {{/if}}
+        </nav>
+                           
              {{{body}}}
              
           </div>
@@ -34,6 +40,9 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
   
 </body>
 </html>
