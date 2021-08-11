@@ -38,17 +38,17 @@ To start the application, run:
 `npm start`. 
 
 ## Deployment
-Find the deployed website [here](.... .herokuapp.com/).
+Find the deployed website [here](https://my-health-application.herokuapp.com/).
 
 
 ## License
-
+![license](https://img.shields.io/badge/license-MIT-brightgreen)
 
 ## Questions
-If you have any questions about this project, send me an email at lizethariasc14@gmail.com or contact us through our GitHub accounts:
+If you have any questions about this project, contact us through our GitHub accounts:
  * [Liz Arias](https://github.com/lizariasc).
  * [Inara Nyingifa](https://github.com/inara-nyingifa).
- * [Araceli ](https://github.com/Araceli4690).
+ * [Araceli Carmona](https://github.com/Araceli4690).
 
 ## Mock-up
 ![Mock-up](mockup.png)
